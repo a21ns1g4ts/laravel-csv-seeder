@@ -277,7 +277,7 @@ class CsvSeeder extends Seeder
         $row_values = [];
 
         foreach ($mapping as $csvCol => $dbCol) {
-            if (!isset($row[$csvCol]) || $row[$csvCol] === '') {
+            if (!isset($row[$csvCol]) || $row[$csvCol] === '' || $row[$csvCol] === 'NULL') {
                 $row_values[$dbCol] = null;
             } else {
                 $row_values[$dbCol] = $this->should_trim ? trim($row[$csvCol]) : $row[$csvCol];
